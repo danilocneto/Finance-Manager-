@@ -3,7 +3,7 @@
 
 ## Finance Manager 
 
-#### Autor do projeto
+#### Danilo de Castro Neto
 
 ## Sumário
 
@@ -17,7 +17,6 @@
 
 ## <a name="c1"></a>1. Introdução (Semana 01)
 
-*Preencha com até 300 palavras – sem necessidade de fonte.*
 * O Finance Manager é uma plataforma desenvolvida para uma empresa de engenharia com o objetivo de substituir o sistema financeiro atual, que hoje é composto apenas por planilhas do Excel, o que gera limitações na análise de dados dos centros de custo. O Finance Manager apresenta, de forma clara e objetiva, um acompanhamento financeiro detalhado das diferentes obras realizadas pela empresa. A plataforma vai receber um banco de dados extraído das planilhas contábeis e organizará os gastos das obras em diferentes categorias (ex: mão de obra, aluguel de equipamentos, despesas da equipe, insumos etc.). Ela também vai informar a porcentagem que cada tipo de gasto representa dentro daquele serviço de maneira visual, por meio de gráficos, de modo a tornar a experiência mais prática e fácil. Além disso, o Finance Manager calculará um índice essencial para a análise de rentabilidade dos centros de custo: o BDI, que mostra a relação entre ganhos e gastos. O usuário deverá adicionar na plataforma as notas fiscais emitidas pelos clientes para que o BDI possa ser calculado. A partir disso, o sistema irá mostrar se a obra está sendo ou não rentável para a empresa. *
  
 ---
@@ -26,16 +25,23 @@
 
 ### 2.1. Personas (Semana 01)
 
-![Persona Marco](assets/personaMarco.png)
+<div align="center">
+    <strong style="font-size: 18px;"><sub></sub></strong><br>
+<img src="../assets /personaMarco.png" width="90%"
+    alt="Persona Marco"><br>
+  </div>
 
 ### 2.2. User Stories (Semana 01)
 
 ##### US1 
 * "Como administrador da empresa, posso acessar qual porcentagem uma categoria de gastos está representando no balanço comercial de alguma obra em andamento." 
+* A US1 atende ao critério INVEST porque descreve uma funcionalidade que é independente, podendo ser desenvolvida sem depender diretamente de outras. Ela é negociável, permitindo que ajustes sejam feitos na forma como os dados são apresentados. Ela traz um valor claro para o administrador, pois facilita o acompanhamento financeiro das obras. É estimável, já que o esforço necessário para sua implementação podem ser calculado com base nos requisitos apresentados. É  pequena o suficiente para ser entregue em um prazo relativamente curto e é testável pois é possível analisar se o administrador consegue acessar corretamente a porcentagem dos gastos por categoria.
 ##### US2 
 * "Como administrador da empresa, devo ser capaz de adicionar os ganhos por notas ficais referente aquele centro de custo." 
+* A US2 atende ao critério INVEST porque descreve uma tarefa que é independente, permitindo que a adição de ganhos por notas fiscais ocorra sem depender de outras partes da plataforma. Ela é negociável, já que mudanças podem ser ajustadas conforme necessário. Além disso, é valiosa, pois adiciona um dado importante para os cálculos financeiro. É estimável, pois é possível calcular o esforço necessário para implementar esse recurso. A user story é pequena, focando apenas na ação de adicionar ganhos, e também é testável, já que podemos validar se as notas fiscais estão sendo corretamente associadas aos centros de custo.
 ##### US3 
 * "Como administrador da empresa, devo ser capaz de analisar a rentabilidade da obra a partir do índice de BDI que será calculado dentro da aplicação." 
+* A US3 atende em grande parte ao critério INVEST, pois descreve uma funcionalidade que traz um valor claro para o administrador, focando na análise da rentabilidade da obra através do índice de BDI. Mesmo que dependa de outras funcionalidades para obter os dados necessários ao cálculo do BDI(no caso o valor total gasto), ela ainda é negociável, permitindo ajustes na forma como o cálculo e a apresentação são feitos. Também é bastante valiosa já oferece uma informação financeira de altíssimo grau de importância. é estimável, já que o esforço para implementação pode ser calculado levando em conta as integrações necessárias. Por fim é pequena, com um escopo focado na análise de um único índice que precisa de poucas informações, e é testável, podendo ser validada ao comparar o cálculo automático com exemplos reais no histórico da empresa.
 
 ---
 
