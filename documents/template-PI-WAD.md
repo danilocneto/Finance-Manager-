@@ -15,7 +15,7 @@
 
 <br>
 
-## <a name="c1"></a>1. Introdução (Semana 01)
+## <a name="c1"></a>1. Introdução 
 
 * O Finance Manager é uma plataforma desenvolvida para uma empresa de engenharia com o objetivo de substituir o sistema financeiro atual, que hoje é composto apenas por planilhas do Excel, o que gera limitações na análise de dados dos centros de custo. O Finance Manager apresenta, de forma clara e objetiva, um acompanhamento financeiro detalhado das diferentes obras realizadas pela empresa. A plataforma vai receber um banco de dados extraído das planilhas contábeis e organizará os gastos das obras em diferentes categorias (ex: mão de obra, aluguel de equipamentos, despesas da equipe, insumos etc.). Ela também vai informar a porcentagem que cada tipo de gasto representa dentro daquele serviço de maneira visual, por meio de gráficos, de modo a tornar a experiência mais prática e fácil. Além disso, o Finance Manager calculará um índice essencial para a análise de rentabilidade dos centros de custo: o BDI, que mostra a relação entre ganhos e gastos. O usuário deverá adicionar na plataforma as notas fiscais emitidas pelos clientes para que o BDI possa ser calculado. A partir disso, o sistema irá mostrar se a obra está sendo ou não rentável para a empresa. *
  
@@ -23,7 +23,7 @@
 
 ## <a name="c2"></a>2. Visão Geral da Aplicação Web
 
-### 2.1. Personas (Semana 01)
+### 2.1. Personas 
 
 <div align="center">
     <strong style="font-size: 18px;"><sub></sub></strong><br>
@@ -31,7 +31,7 @@
     alt="Persona Marco"><br>
   </div>
 
-### 2.2. User Stories (Semana 01)
+### 2.2. User Stories 
 
 ##### US1 
 * "Como administrador da empresa, posso acessar qual porcentagem uma categoria de gastos está representando no balanço comercial de alguma obra em andamento." 
