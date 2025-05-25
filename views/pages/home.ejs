@@ -10,8 +10,30 @@
 
   <main class="container">
     <h1><%= titulo %></h1>
-    <p>descricao</p>
+    <p><%= mensagem %></p>
   </main>
+
+  <!-- views/pages/home.ejs -->
+<div class="container-cards">
+  <% if (obras && obras.length > 0) { %>
+    <% obras.forEach(obra => { %>
+      <div class="card-obra">
+        <h2><%= obra.nome %></h2>
+        <% if (obra.url_foto) { %>
+          <img src="<%= obra.url_foto %>" alt="Foto da obra" class="card-img">
+        <% } else { %>
+          <div class="img-placeholder">Sem imagem</div>
+        <% } %>
+        <a href="/obra/<%= obra.id %>">
+          <button class="btn-acessar">Acessar Obra</button>
+        </a>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>Nenhuma obra cadastrada ainda.</p>
+  <% } %>
+</div>
+
 
   <%- include('../partials/footer') %>
 </body>
