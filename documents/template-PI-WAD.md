@@ -312,10 +312,24 @@ Dessa forma, com o diagrama em mãos, fica claro como o MVC organiza seu projeto
 
 ### 3.4. Guia de estilos (Semana 05)
 
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
+Um guia de estilos é um documento que define padrões visuais e comportamentais para a interface de um sistema. Ele reúne elementos como paleta de cores, tipografia, espaçamento, ícones, botões e demais componentes gráficos, garantindo que o design mantenha coerência e identidade visual em todas as telas. Serve como uma referência para desenvolvedores e designers, promovendo consistência e facilitando futuras manutenções e expansões do projeto.
+
+<div align="center">
+  <sub>Guia de estilos:</sub><br>
+  <img src="../assets /guia.png" width="100%" alt="Layout:"><br>
+  <sup>Fonte: Desenvolvido por Danilo de Castro</sup>
+</div>
 
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
+
+Um protótipo de alta fidelidade é uma representação visual detalhada do sistema final, com aparência, interações e funcionalidades próximas da versão real. Diferente dos esboços iniciais, ele inclui elementos gráficos precisos, navegação realista e simula com fidelidade como o usuário final vai interagir com o sistema. 
+
+<div align="center">
+  <sub>Tela de controle das obras (principal):</sub><br>
+  <img src="../assets /prototipo.jpg" width="100%" alt="Tela de controle das obras:"><br>
+  <sup>Fonte: Desenvolvido por Danilo de Castro</sup>
+</div>
 
 ### 3.6. WebAPI e endpoints 
 
