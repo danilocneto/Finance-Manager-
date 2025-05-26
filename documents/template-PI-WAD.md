@@ -325,6 +325,9 @@ Um guia de estilos é um documento que define padrões visuais e comportamentais
 
 Um protótipo de alta fidelidade é uma representação visual detalhada do sistema final, com aparência, interações e funcionalidades próximas da versão real. Diferente dos esboços iniciais, ele inclui elementos gráficos precisos, navegação realista e simula com fidelidade como o usuário final vai interagir com o sistema. 
 
+#### Tela de gestão de obras
+A tela de Obras é o núcleo operacional do Finance Manager. Nela, o usuário visualiza de forma centralizada todas as obras cadastradas, com informações essenciais como nome, imagem e um botão de acesso rápido para análise detalhada de cada obra. O layout prioriza a visualização clara e a navegação intuitiva, permitindo que o gestor acesse rapidamente os dados financeiros segmentados por contrato e região.
+
 <div align="center">
   <sub>Tela de controle das obras (principal):</sub><br>
   <img src="../assets /prototipo.jpg" width="100%" alt="Tela de controle das obras:"><br>
