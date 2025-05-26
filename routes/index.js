@@ -13,6 +13,9 @@ router.get('/obra', obra.index);
 
 // Rota da página "Nota"
 router.get('/nota', nota.index);
+router.post('/nota/add', nota.store);
+router.post('/nota/edit/:id', nota.update);
+router.post('/nota/delete/:id', nota.destroy);
 
 // Rota da página "Dashboard"
 router.get('/dashboard', dashboard.index);

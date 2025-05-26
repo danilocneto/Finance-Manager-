@@ -2,6 +2,11 @@ const db = require('../config/db');
 
 module.exports = {
 
+    async findAllNF() {
+    const result = await db.query('SELECT * FROM nota_fiscal');
+    return result.rows;
+    },
+
     async createNF(data){
         const query = 'INSERT INTO nota_fiscal (numero, valor, data_emissao, id_obra) VALUES ($1, $2, $3, $4)';
         const values = [data.numero, data.valor, data.data_emissao, data.id_obra];

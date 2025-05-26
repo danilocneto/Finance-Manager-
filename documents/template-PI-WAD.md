@@ -147,23 +147,135 @@ Representa as notas fiscais que compõe o faturamento de uma obra da empresa:
 </div>
 
 #### Modelo físico com o Schema do BD
-📥 [Schema SQL completo](../scripts/init.sql)
+📥 [Schema SQL completo](../scripts/migrate.sql)
 
-### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
 
-### 3.2. Arquitetura (Semana 5)
+### 3.1.1 BD e Models 
+Abaixo estão descritas as principais tabelas do sistema Finance Manager, seus campos e as operações SQL realizadas por cada Model do projeto. Essas operações representam as funcionalidades básicas de cadastro, consulta, atualização e remoção de registros, refletindo diretamente as ações suportadas pela aplicação no contexto do controle financeiro das obras da Fortal.
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+---
 
-**Instruções para criação do diagrama de arquitetura**  
-- **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
-- **View**: A camada responsável pela interface de usuário.
-- **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
+#### Obras
+**id**: inteiro, chave primária;  
+**nome**: texto, obrigatório;  
+**url_foto**: texto, opcional;
+
+- Criar:  
+  `INSERT INTO obra (nome, url_foto) VALUES ($1, $2);`
+- Listar:  
+  `SELECT * FROM obra;`
+- Atualizar:  
+  `UPDATE obra SET nome = $1, url_foto = $2 WHERE id = $3;`
+- Deletar:  
+  `DELETE FROM obra WHERE id = $1;`
+
+---
+
+#### Notas Fiscais
+**id**: inteiro, chave primária;  
+**numero**: texto, obrigatório;  
+**valor**: numérico, obrigatório;  
+**data_emissao**: data, obrigatório;  
+**id_obra**: inteiro, chave estrangeira para obra, obrigatório;
+
+- Criar:  
+  `INSERT INTO nota_fiscal (numero, valor, data_emissao, id_obra) VALUES ($1, $2, $3, $4);`
+- Listar:  
+  `SELECT * FROM nota_fiscal;`
+- Atualizar:  
+  `UPDATE nota_fiscal SET numero = $1, valor = $2, date = $3 WHERE id = $4;`
+- Deletar:  
+  `DELETE FROM nota_fiscal WHERE id = $1;`
+
+---
+
+#### Salário
+**id**: inteiro, chave primária;  
+**nome**: texto, obrigatório;  
+**descricao**: texto, obrigatório;  
+**valor**: numérico, obrigatório;  
+**obra_id**: inteiro, chave estrangeira para obra, obrigatório;
+
+- Criar:  
+  `INSERT INTO salario (nome, descricao, valor, obra_id) VALUES ($1, $2, $3, $4);`
+- Atualizar:  
+  `UPDATE salario SET nome = $1, descricao = $2, valor = $3 WHERE id = $4;`
+- Deletar:  
+  `DELETE FROM salario WHERE id = $1;`
+
+---
+
+#### Despesa de Equipe
+**id**: inteiro, chave primária;  
+**descricao**: texto, obrigatório;  
+**valor**: numérico, obrigatório;  
+**id_obra**: inteiro, chave estrangeira para obra, obrigatório;
+
+- Criar:  
+  `INSERT INTO despesa_equipe (descricao, valor, id_obra) VALUES ($1, $2, $3) RETURNING *;`
+- Atualizar:  
+  `UPDATE despesa_equipe SET descricao = $1, valor = $2 WHERE id = $3 RETURNING *;`
+- Deletar:  
+  `DELETE FROM despesa_equipe WHERE id = $1;`
+
+---
+
+#### Maquinário e Equipamentos
+**id**: inteiro, chave primária;  
+**descricao**: texto, obrigatório;  
+**valor**: numérico, obrigatório;  
+**id_obra**: inteiro, chave estrangeira para obra, obrigatório;
+
+- Criar:  
+  `INSERT INTO maquinario_equipamento (descricao, valor, id_obra) VALUES ($1, $2, $3) RETURNING *;`
+- Atualizar:  
+  `UPDATE maquinario_equipamento SET descricao = $1, valor = $2 WHERE id = $3 RETURNING *;`
+- Deletar:  
+  `DELETE FROM maquinario_equipamento WHERE id = $1;`
+
+---
+
+#### Veículos
+**id**: inteiro, chave primária;  
+**descricao**: texto, obrigatório;  
+**valor**: numérico, obrigatório;  
+**id_obra**: inteiro, chave estrangeira para obra, obrigatório;
+
+- Criar:  
+  `INSERT INTO veiculos (descricao, valor, id_obra) VALUES ($1, $2, $3) RETURNING *;`
+- Atualizar:  
+  `UPDATE veiculos SET descricao = $1, valor = $2 WHERE id = $3 RETURNING *;`
+- Deletar:  
+  `DELETE FROM veiculos WHERE id = $1;`
+
+---
+
+#### Diversos
+**id**: inteiro, chave primária;  
+**descricao**: texto, obrigatório;  
+**valor**: numérico, obrigatório;  
+**id_obra**: inteiro, chave estrangeira para obra, obrigatório;
+
+- Criar:  
+  `INSERT INTO diverso (descricao, valor, id_obra) VALUES ($1, $2, $3) RETURNING *;`
+- Atualizar:  
+  `UPDATE diverso SET descricao = $1, valor = $2 WHERE id = $3 RETURNING *;`
+- Deletar:  
+  `DELETE FROM diverso WHERE id = $1;`
   
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
+### 3.2. Arquitetura 
 
-### 3.3. Wireframes (Semana 03)
+Um diagrama de arquitetura mostra como cada peça (models, controllers, banco de dados) se encaixa e se comunica. Ele ajuda a equipe a visualizar o fluxo de dados e garantir que tudo funcione harmoniosamente, desde a requisição do usuário até a resposta final.
+
+<div align="center">
+  <sub>Arquitetura:</sub><br>
+  <img src="../assets /esquemaMVC.jpg" width="100%" alt="modelo"><br>
+  <sup>Fonte: Desenvolvido por Danilo de Castro</sup>
+</div>
+Dessa forma, com o diagrama em mãos, fica claro como o MVC organiza seu projeto: os controllers gerenciam a lógica, o banco armazena os dados e as rotas direcionam cada ação. Essa visualização não só simplifica o desenvolvimento, mas também facilita futuras melhorias e manutenção!
+
+
+### 3.3. Wireframes 
 
 ####  Home
 (apoia o cumprimento das US1, US2 e US3): Esta tela inicial exibe uma imagem destacada e uma galeria de obras registradas no sistema, funcionando como um ponto de entrada para as funcionalidades principais. Ao selecionar uma obra, o usuário é direcionado à visualização individual com acesso detalhado aos dados financeiros, o que viabiliza a navegação necessária para as análises de gasto, faturamento e BDI previstas nas user stories.
@@ -205,11 +317,80 @@ Representa as notas fiscais que compõe o faturamento de uma obra da empresa:
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
 
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
+### 3.6. WebAPI e endpoints 
 
-### 3.6. WebAPI e endpoints (Semana 05)
+#### Obras
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+| Método | Endpoint        | Descrição                       | Parâmetros / Corpo                                                                  |
+| ------ | --------------- | ------------------------------- | ----------------------------------------------------------------------------------- |
+| GET    | `/obra`         | Listar todas as obras           | -                                                                                   |
+| GET    | `/obra/:id`     | Buscar obra pelo ID             | Parâmetro URL: `id`                                                                 |
+| POST   | `/obra`         | Criar nova obra                 | Corpo JSON: `{ nome, url_foto }`                                                    |
+| PUT    | `/obra/:id`     | Atualizar dados da obra         | Parâmetro URL: `id` <br> Corpo JSON: `{ nome, url_foto }`                           |
+| DELETE | `/obra/:id`     | Deletar obra pelo ID            | Parâmetro URL: `id`                                                                 |
+
+---
+
+#### Notas Fiscais
+
+| Método | Endpoint            | Descrição                        | Parâmetros / Corpo                                                                   |
+| ------ | ------------------- | -------------------------------- | ------------------------------------------------------------------------------------ |
+| GET    | `/nota`             | Listar todas as notas fiscais    | -                                                                                    |
+| POST   | `/nota/add`         | Criar nova nota fiscal           | Corpo form: `{ numero, valor, data_emissao, id_obra }`                               |
+| POST   | `/nota/edit/:id`    | Atualizar nota fiscal existente  | Parâmetro URL: `id` <br> Corpo form: `{ numero, valor, data_emissao }`               |
+| POST   | `/nota/delete/:id`  | Deletar nota fiscal pelo ID      | Parâmetro URL: `id`                                                                  |
+
+---
+
+#### Salário
+
+| Método | Endpoint        | Descrição                       | Parâmetros / Corpo                                                                  |
+| ------ | --------------- | ------------------------------- | ----------------------------------------------------------------------------------- |
+| POST   | `/salario`      | Criar novo salário              | Corpo JSON: `{ nome, descricao, valor, obra_id }`                                   |
+| PUT    | `/salario/:id`  | Atualizar dados do salário      | Parâmetro URL: `id` <br> Corpo JSON: `{ nome, descricao, valor }`                   |
+| DELETE | `/salario/:id`  | Deletar salário pelo ID         | Parâmetro URL: `id`                                                                 |
+
+---
+
+#### Despesa de Equipe
+
+| Método | Endpoint              | Descrição                       | Parâmetros / Corpo                                                                  |
+| ------ | --------------------- | ------------------------------- | ----------------------------------------------------------------------------------- |
+| POST   | `/despesa_equipe`     | Criar nova despesa de equipe     | Corpo JSON: `{ descricao, valor, id_obra }`                                         |
+| PUT    | `/despesa_equipe/:id` | Atualizar despesa de equipe      | Parâmetro URL: `id` <br> Corpo JSON: `{ descricao, valor }`                         |
+| DELETE | `/despesa_equipe/:id` | Deletar despesa de equipe pelo ID| Parâmetro URL: `id`                                                                 |
+
+---
+
+#### Maquinário e Equipamentos
+
+| Método | Endpoint                    | Descrição                               | Parâmetros / Corpo                                                                  |
+| ------ | --------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------- |
+| POST   | `/maquinario_equipamento`   | Criar novo maquinário/equipamento       | Corpo JSON: `{ descricao, valor, id_obra }`                                         |
+| PUT    | `/maquinario_equipamento/:id`| Atualizar maquinário/equipamento        | Parâmetro URL: `id` <br> Corpo JSON: `{ descricao, valor }`                         |
+| DELETE | `/maquinario_equipamento/:id`| Deletar maquinário/equipamento pelo ID  | Parâmetro URL: `id`                                                                 |
+
+---
+
+#### Veículos
+
+| Método | Endpoint            | Descrição                       | Parâmetros / Corpo                                                                  |
+| ------ | ------------------- | ------------------------------- | ----------------------------------------------------------------------------------- |
+| POST   | `/veiculos`         | Criar novo veículo              | Corpo JSON: `{ descricao, valor, id_obra }`                                         |
+| PUT    | `/veiculos/:id`     | Atualizar dados do veículo      | Parâmetro URL: `id` <br> Corpo JSON: `{ descricao, valor }`                         |
+| DELETE | `/veiculos/:id`     | Deletar veículo pelo ID         | Parâmetro URL: `id`                                                                 |
+
+---
+
+#### Diversos
+
+| Método | Endpoint        | Descrição                       | Parâmetros / Corpo                                                                  |
+| ------ | --------------- | ------------------------------- | ----------------------------------------------------------------------------------- |
+| POST   | `/diverso`      | Criar novo gasto diverso        | Corpo JSON: `{ descricao, valor, id_obra }`                                         |
+| PUT    | `/diverso/:id`  | Atualizar gasto diverso         | Parâmetro URL: `id` <br> Corpo JSON: `{ descricao, valor }`                         |
+| DELETE | `/diverso/:id`  | Deletar gasto diverso pelo ID   | Parâmetro URL: `id`                                                                 |
+
+ 
 
 ### 3.7 Interface e Navegação (Semana 07)
 
