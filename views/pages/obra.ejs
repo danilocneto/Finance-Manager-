@@ -2,17 +2,53 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title><%= titulo %></title>
+  <title>Controle Financeiro – <%= obra.nome %></title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <%- include('../partials/header') %>
-
-  <main class="container">
-    <h1><%= titulo %></h1>
-    <p><%= descricao %></p>
-  </main>
-
+  <%- include('../partials/sidebar') %>
+  <div class="main-content">
+    <h1><%= obra.nome %></h1>
+    <div class="summary-cards">
+      <div class="card">
+        <span class="label">Total Arrecadado</span>
+        <span class="value">R$ <%= totalFaturamento.toFixed(2) %></span>
+      </div>
+      <div class="card">
+        <span class="label">Total Gastos</span>
+        <span class="value">R$ <%= totalGastoObra.toFixed(2) %></span>
+      </div>
+      <div class="card">
+        <span class="label">BDI</span>
+        <span class="value"><%= bdi.toFixed(2) %></span>
+      </div>
+    </div>
+    <form action="/obra/<%= obra.id %>/despesa/add" method="POST" class="nova-despesa-form">
+      <h2>Adicionar Despesa</h2>
+      <label for="tipo">Tipo de Despesa:</label>
+      <select name="tipo" id="tipo" required>
+        <option value="salario">Salário</option>
+        <option value="despesa_equipe">Despesa Equipe</option>
+        <option value="maquinario">Maquinário</option>
+        <option value="veiculos">Veículos</option>
+        <option value="diversos">Diversos</option>
+      </select>
+      <input name="valor" type="number" step="0.01" placeholder="Valor da despesa" required>
+      <input name="descricao" type="text" placeholder="Descrição" required>
+      <input name="data" type="date" placeholder="Data" required>
+      <input name="id_obra" type="hidden" value="<%= obra.id %>">
+      <button type="submit">Adicionar Despesa</button>
+    </form>
+    <div class="categories">
+      <% categorias.forEach(categoria => { %>
+        <div class="category-row">
+          <span class="category-name"><%= categoria.nome %></span>
+          <span class="category-value">R$ <%= categoria.valor.toFixed(2) %></span>
+          <span class="category-percent"><%= categoria.percentual %>%</span>
+        </div>
+      <% }) %>
+    </div>
+  </div>
   <%- include('../partials/footer') %>
 </body>
 </html>

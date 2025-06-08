@@ -13,11 +13,10 @@ module.exports = {
         return db.query(query, values);
     },
 
-    async updateNF(data, id){
-        const query = 'UPDATE nota_fiscal SET numero = $1, valor = $2, date = $3 WHERE id = $4';
-        const values = [data.numero, data.valor, data.date, id];
+    async updateNF(id, data){
+        const query = 'UPDATE nota_fiscal SET numero = $1, valor = $2, data_emissao = $3 WHERE id = $4';
+        const values = [data.numero, data.valor, data.data_emissao, id];
         return db.query(query, values);
-
     },
 
     async deleteNF(id){

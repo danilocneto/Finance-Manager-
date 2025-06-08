@@ -294,7 +294,7 @@ Dessa forma, com o diagrama em mãos, fica claro como o MVC organiza seu projeto
 </div>
 
 ####  Notas fiscais
-(atende à US2): Esta tela permite ao administrador adicionar e remover notas fiscais associadas a centros de custo, listando todas as informações relevantes em formato de tabela. O botão “Adicionar” possibilita registrar novos ganhos, sendo essencial para o cálculo do faturamento da obra, conforme solicitado pela user story sobre controle de notas fiscais (US2).
+(atende à US2): Esta tela permite ao administrador adicionar e remover notas fiscais associadas a centros de custo, listando todas as informações relevantes em formato de tabela. O botão "Adicionar" possibilita registrar novos ganhos, sendo essencial para o cálculo do faturamento da obra, conforme solicitado pela user story sobre controle de notas fiscais (US2).
 <div align="center">
   <sub>Tela de notas fiscais:</sub><br>
   <img src="../assets /notas_fiscais.jpg" width="100%" alt="Tela notas fiscais"><br>
@@ -411,7 +411,25 @@ A tela de Obras é o núcleo operacional do Finance Manager. Nela, o usuário vi
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+A seguir, são apresentadas as principais telas do sistema Finance Manager, ilustrando a navegação e as funcionalidades implementadas no frontend:
+
+#### Tela Home
+Esta é a tela inicial do sistema, onde o usuário visualiza todas as obras cadastradas em formato de cards. Cada card exibe o nome da obra, uma imagem ilustrativa e um botão para acessar os detalhes financeiros daquela obra. A navegação parte sempre desta tela, facilitando o acesso rápido a qualquer centro de custo.
+<div align="center">
+  <img src="../assets /telaHome.png" width="80%" alt="Tela Home">
+</div>
+
+#### Tela de Obra
+Ao clicar em "Acessar Obra" na tela inicial, o usuário é direcionado para a tela de detalhes da obra selecionada. Nela, são exibidos o nome da obra, os valores de faturamento, gastos e BDI, além de um formulário para adicionar despesas e uma listagem das categorias de gastos, cada uma com seu valor e percentual. Essa tela permite o controle detalhado dos custos e receitas de cada obra.
+<div align="center">
+  <img src="../assets /telaObra.png" width="80%" alt="Tela de Obra">
+</div>
+
+#### Tela de Notas Fiscais
+Esta tela permite ao usuário adicionar novas notas fiscais, selecionar a obra correspondente e visualizar, editar ou remover todas as notas fiscais já cadastradas. A interface é otimizada para facilitar o controle do faturamento das obras, centralizando todas as operações relacionadas às notas fiscais em um só lugar.
+<div align="center">
+  <img src="../assets /telaNotas.png" width="80%" alt="Tela de Notas Fiscais">
+</div>
 
 ---
 

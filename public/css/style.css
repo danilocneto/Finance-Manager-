@@ -6,17 +6,76 @@
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #fffbea;
-  color: #514300;
+  font-family: 'Nunito', Arial, sans-serif;
+  background: #FAFAF8;
+  color: #232133;
   line-height: 1.6;
 }
 
-/* ========== CABEÇALHO ========== */
+/* ========== SIDEBAR ========== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 210px;
+  height: 100vh;
+  background: #4B6B3C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 40px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav li a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+nav li.active, nav li:has(a.active), nav li:hover {
+  background: #F6F8F3;
+  color: #4B6B3C;
+  font-weight: bold;
+}
+
+nav li.active a, nav li:has(a.active) a {
+  color: #4B6B3C;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+/* ========== HEADER (OBRA EJS) ========== */
 header {
   background: linear-gradient(90deg, #ffeb3b 60%, #ffe082 100%);
   color: #514300;
-  padding: 18px 0 8px 0;
+  padding: 18px 0 8px;
   text-align: center;
   letter-spacing: 1.5px;
   font-weight: bold;
@@ -24,7 +83,7 @@ header {
 }
 
 header nav ul {
-  list-style-type: none;
+  list-style: none;
   margin-top: 8px;
 }
 
@@ -38,114 +97,176 @@ header nav ul li a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.05em;
+  transition: color 0.2s;
 }
 
 header nav ul li a:hover {
-  text-decoration: underline;
   color: #c79100;
+  text-decoration: underline;
 }
 
-/* ========== CONTEÚDO PRINCIPAL ========== */
-main.container {
-  padding: 32px 10px 64px 10px;
-  max-width: 980px;
+/* ========== MAIN CONTENT (DASHBOARD) ========== */
+.main-content {
+  margin-left: 230px;
+  padding: 40px 60px;
+}
+
+/* ========== HOME / OBRA CONTAINER ========== */
+main.home-container {
+  padding: 32px 20px 80px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-h1, h2 {
+h1.home-title {
+  font-size: 2.4em;
   color: #b19600;
   text-align: center;
+  margin-bottom: 24px;
 }
 
-p {
-  margin-bottom: 16px;
-}
-
-/* ========== RODAPÉ ========== */
-footer {
-  background: #ffe082;
-  color: #514300;
-  text-align: center;
-  padding: 14px 0;
-  font-size: 0.98em;
-  box-shadow: 0 -2px 6px #b1960022;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-/* ========== HOME: CARDS DE OBRAS ========== */
+/* ========== CARDS DE OBRAS ========== */
 .container-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
-  padding: 32px 0 0 0;
   justify-content: center;
 }
 
 .card-obra {
-  background: linear-gradient(120deg, #fffde4 75%, #fff9c4 100%);
+  background: #fff;
+  border: 1.5px solid #D6E2D3;
   border-radius: 16px;
   box-shadow: 0 2px 12px #e0b40033;
-  padding: 22px 14px;
-  width: 255px;
+  width: 260px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 28px;
-  border: 1.5px solid #ffe082;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .card-obra:hover {
-  box-shadow: 0 6px 22px #ffe08299;
+  box-shadow: 0 6px 22px #d6e2d399;
+  transform: translateY(-2px);
 }
 
-.card-img {
-  width: 196px;
+.card-obra .card-img {
+  display: block;
+  width: 200px;
   height: 112px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ffe082;
-  background: #fffde4;
+  border: 1px solid #D6E2D3;
+  background: #FAFAF8;
+  margin-bottom: 14px;
 }
 
-.btn-acessar {
-  margin-top: 14px;
-  padding: 8px 24px;
-  background: linear-gradient(90deg, #ffe082 70%, #ffd54f 100%);
-  color: #514300;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  transition: background 0.15s, color 0.15s;
-  font-size: 1em;
-  box-shadow: 0 1px 5px #b1960011;
-}
-
-.btn-acessar:hover {
-  background: #ffe082;
-  color: #c79100;
-}
-
-.img-placeholder {
-  width: 196px;
+.card-obra .img-placeholder {
+  width: 200px;
   height: 112px;
-  background: #fff9c4;
+  background: #FAFAF8;
   color: #bdb76b;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  margin-bottom: 12px;
-  border: 1px dashed #ffe082;
+  border: 1px dashed #D6E2D3;
   font-size: 1em;
+  margin-bottom: 14px;
 }
 
-/* ========== PÁGINA DE NOTAS FISCAIS ========== */
+.card-obra .obra-name {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #514300;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.card-obra .btn-acessar {
+  padding: 8px 24px;
+  background: #4B6B3C;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 1px 5px #b1960011;
+  transition: background 0.15s, color 0.15s;
+}
+
+.card-obra .btn-acessar:hover {
+  background: #35502a;
+  color: #fff;
+}
+
+/* ========== SUMMARY CARDS (DASHBOARD) ========== */
+.summary-cards {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border: 1.5px solid #D6E2D3;
+  border-radius: 18px;
+  padding: 24px 36px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card .label {
+  color: #8B8B8B;
+  font-size: 1em;
+  margin-bottom: 8px;
+}
+
+.card .value {
+  color: #232133;
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+/* ========== CATEGORIES (DASHBOARD) ========== */
+.categories {
+  margin-top: 30px;
+}
+
+.category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1.5px solid #D6E2D3;
+  border-radius: 16px;
+  padding: 18px 32px;
+  margin-bottom: 18px;
+  font-size: 1.2em;
+}
+
+.category-name {
+  color: #8B8B8B;
+  font-weight: 600;
+}
+
+.category-value {
+  color: #232133;
+  font-weight: 700;
+}
+
+.category-percent {
+  color: #8B8B8B;
+  font-weight: 600;
+}
+
+/* ========== NOTAS FISCAIS (OBRA EJS) ========== */
 ul.notas-lista {
   list-style: none;
   padding: 0;
@@ -153,15 +274,15 @@ ul.notas-lista {
 }
 
 ul.notas-lista li {
-  background: #fffde4;
+  background: #fff;
   border-radius: 8px;
   margin-bottom: 16px;
   padding: 14px 18px;
-  box-shadow: 0 1px 6px #ffe08266;
+  box-shadow: 0 1px 6px #d6e2d366;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #ffe082;
+  border: 1px solid #D6E2D3;
 }
 
 ul.notas-lista li > span {
@@ -177,93 +298,147 @@ ul.notas-lista input[type="text"],
 ul.notas-lista input[type="number"],
 ul.notas-lista input[type="date"] {
   padding: 4px 8px;
-  border: 1px solid #ffe082;
+  border: 1px solid #D6E2D3;
   border-radius: 4px;
   margin-right: 5px;
   width: 92px;
   font-size: 0.98em;
-  background: #fffded;
-  color: #7c6500;
+  background: #FAFAF8;
+  color: #232133;
 }
 
 ul.notas-lista button {
-  background-color: #ffe082;
-  color: #514300;
+  background-color: #4B6B3C;
+  color: #fff;
   border: none;
   border-radius: 4px;
   padding: 4px 14px;
   cursor: pointer;
   font-size: 0.98em;
-  transition: background 0.15s, color 0.15s;
   font-weight: 600;
-  margin-left: 3px;
+  transition: background 0.15s, color 0.15s;
 }
 
 ul.notas-lista button:hover {
-  background-color: #ffd54f;
-  color: #b19600;
+  background-color: #35502a;
+  color: #fff;
 }
 
-/* Formulário de nova nota */
+/* ========== FORMULÁRIO NOVA NOTA (OBRA EJS) ========== */
 form.nova-nota-form {
-  background: #fffde4;
-  padding: 18px;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px #ffe08266;
+  background: #fff;
+  border: 1.5px solid #D6E2D3;
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin: 32px auto 0;
+  max-width: 420px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 40px;
-  border: 1px solid #ffe082;
+  flex-direction: column;
+  gap: 16px;
 }
 
-form.nova-nota-form input[type="text"],
-form.nova-nota-form input[type="number"],
-form.nova-nota-form input[type="date"] {
-  flex: 1;
-  min-width: 120px;
-  padding: 7px 10px;
-  border: 1px solid #ffe082;
-  border-radius: 4px;
-  background: #fffded;
-  color: #7c6500;
+form.nova-nota-form h2 {
+  color: #232133;
+  font-size: 1.3em;
+  margin-bottom: 8px;
+  text-align: left;
 }
 
-form.nova-nota-form button {
-  background-color: #ffe082;
-  color: #514300;
+form.nova-nota-form input,
+form.nova-despesa-form input,
+form.nova-despesa-form select {
+  border: 1.2px solid #D6E2D3;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #FAFAF8;
+  color: #232133;
+}
+
+form.nova-nota-form button,
+form.nova-despesa-form button {
+  background: #4B6B3C;
+  color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 7px 18px;
-  cursor: pointer;
-  font-size: 1em;
-  margin-left: 6px;
+  border-radius: 8px;
+  padding: 10px 0;
   font-weight: bold;
-  transition: background 0.15s, color 0.15s;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-form.nova-nota-form button:hover {
-  background-color: #ffd54f;
-  color: #b19600;
+form.nova-nota-form button:hover,
+form.nova-despesa-form button:hover {
+  background: #35502a;
 }
 
-/* ========== OUTROS ELEMENTOS DE FORMULÁRIO ========== */
-input, select, textarea, button {
+form.nova-nota-form.horizontal-form {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 12px;
+  justify-content: flex-start;
+  background: #fff;
+  border: 1.5px solid #D6E2D3;
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 32px;
+  max-width: 100%;
+}
+form.nova-nota-form.horizontal-form input,
+form.nova-nota-form.horizontal-form button {
+  margin-bottom: 0;
+}
+form.nova-nota-form.horizontal-form button {
+  min-width: 120px;
+}
+
+/* ========== FORMULÁRIOS GERAIS ========== */
+input,
+select,
+textarea,
+button {
   font-family: inherit;
+  font-size: 1em;
 }
 
-/* ========== SCROLLBAR AMARELA (OPCIONAL) ========== */
+/* ========== SCROLLBAR PERSONALIZADA ========== */
 ::-webkit-scrollbar {
   width: 9px;
-  background: #fffbe7;
+  background: #FAFAF8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffe082;
+  background: #D6E2D3;
   border-radius: 6px;
 }
 
-/* ========== EXTRAS ========== */
+/* ========== RODAPÉ (OBRA EJS) ========== */
+footer {
+  background: #4B6B3C;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 1em;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+  .container-cards {
+    gap: 18px;
+    padding: 0 10px;
+  }
+  .card-obra {
+    width: 90vw;
+  }
+  main.home-container {
+    padding: 20px 10px 100px;
+  }
+}
+
 @media (max-width: 650px) {
   .container-cards {
     flex-direction: column;
@@ -274,7 +449,17 @@ input, select, textarea, button {
   .card-obra {
     width: 95vw;
   }
-  main.container {
+  main.home-container {
     padding: 14px 3vw 70px 3vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    padding: 24px 8px;
+  }
+  .summary-cards {
+    flex-direction: column;
+    align-items: center;
   }
 }

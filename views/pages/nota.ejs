@@ -6,42 +6,42 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <%- include('../partials/header') %>
-
-  <main class="container">
+  <%- include('../partials/sidebar') %>
+  <div class="main-content">
     <h1><%= titulo %></h1>
     <p><%= descricao %></p>
-
-    <!-- Lista de notas -->
-    <ul class="notas-lista">
+    <form id="form-add-nf" action="/nota/add" method="POST" class="nova-nota-form horizontal-form">
+      <input name="numero" type="text" placeholder="Número da nota" required>
+      <input name="valor" type="number" step="0.01" placeholder="Valor bruto" required>
+      <input name="data_emissao" type="date" placeholder="Data de emissão" required>
+      <select name="id_obra" required>
+        <option value="">Selecione a obra</option>
+        <% obras.forEach(obra => { %>
+          <option value="<%= obra.id %>"><%= obra.nome %></option>
+        <% }) %>
+      </select>
+      <button type="submit">Adicionar</button>
+    </form>
+    <ul class="notas-lista" id="notas-lista">
       <% notas.forEach(NF => { %>
-        <li>
-          <span>
+        <li data-id="<%= NF.id %>">
+          <span class="nf-info">
             <%= NF.numero %> - R$ <%= NF.valor %> - <%= NF.data_emissao %>
           </span>
-          <form action="/nota/edit/<%= NF.id %>" method="POST">
+          <form class="form-edit-nf" data-id="<%= NF.id %>" action="/nota/edit/<%= NF.id %>" method="POST">
             <input name="numero" placeholder="Novo número" required>
             <input name="valor" type="number" step="0.01" placeholder="Novo valor" required>
             <input name="data_emissao" type="date" placeholder="Nova data" required>
             <button type="submit">Editar</button>
           </form>
-          <form action="/nota/delete/<%= NF.id %>" method="POST">
+          <form class="form-delete-nf" data-id="<%= NF.id %>" action="/nota/delete/<%= NF.id %>" method="POST">
             <button type="submit">Apagar</button>
           </form>
         </li>
       <% }) %>
     </ul>
-
-    <!-- Formulário de nova nota -->
-    <form action="/nota/add" method="POST" class="nova-nota-form">
-      <input name="numero" type="text" placeholder="Número da nota" required>
-      <input name="valor" type="number" step="0.01" placeholder="Valor bruto" required>
-      <input name="data_emissao" type="date" placeholder="Data de emissão" required>
-      <input name="id_obra" type="number" placeholder="ID da Obra" required>
-      <button type="submit">Adicionar</button>
-    </form>
-  </main>
-
+    <script src="/js/notas.js"></script>
+  </div>
   <%- include('../partials/footer') %>
 </body>
 </html>

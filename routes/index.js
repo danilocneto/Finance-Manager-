@@ -9,7 +9,9 @@ const dashboard = require('../controllers/dashboardController');
 router.get('/', home.index);
 
 // Rota da página "Obra"
-router.get('/obra', obra.index);
+router.get('/obra/:id', obra.getObraById);
+router.post('/obra/:id/nota/add', obra.addNotaFiscal);
+router.post('/obra/:id/despesa/add', obra.addDespesa);
 
 // Rota da página "Nota"
 router.get('/nota', nota.index);
