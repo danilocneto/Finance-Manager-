@@ -439,8 +439,7 @@ Esta tela permite ao usuário adicionar novas notas fiscais, selecionar a obra c
 
 ### 4.1 Demonstração do Sistema Web 
 Apresentação em vídeo do sistema Finance Manager, mostrando o funcionamento da aplicação, as principais funcionalidades implementadas e uma explicação breve sobre a estrutura do projeto:
-[Acesse o vídeo da apresentação no Google Drive]([https://drive.google.com/file/d/1AdN9ZqqvWHhc6B2X04KRJXPABDwNU8CJ/view?usp=sharing](https://drive.google.com/file/d/1V1LzkgAvkFmvHKiXuUKo8SPY9CBPjd21/view?usp=drive_link))
-
+[Acesse o vídeo da apresentação no Google Drive](https://drive.google.com/file/d/1V1LzkgAvkFmvHKiXuUKo8SPY9CBPjd21/view?usp=drive_link)
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
 *Indique pontos fortes e pontos a melhorar de maneira geral.*
