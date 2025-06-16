@@ -442,14 +442,22 @@ Apresentação em vídeo do sistema Finance Manager, mostrando o funcionamento d
 [Acesse o vídeo da apresentação no Google Drive](https://drive.google.com/file/d/1V1LzkgAvkFmvHKiXuUKo8SPY9CBPjd21/view?usp=drive_link)
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
+A construção do Finance Manager representou um avanço significativo na gestão financeira da Fortal. Ao longo deste desenvolvimento, foi possível transformar um processo antes limitado a planilhas estáticas em uma plataforma web dinâmica, com visualização intuitiva de dados, categorização detalhada de despesas e acompanhamento em tempo real da rentabilidade das obras. Cada etapa, desde a modelagem do banco de dados até a implementação das rotas e controllers, reforçou a importância de integrar tecnologia à tomada de decisão estratégica dentro de uma empresa de engenharia ambiental. Embora o sistema já entregue funcionalidades robustas e alinhadas com as necessidades da Fortal, este projeto abre espaço para futuras melhorias, como a ampliação de dashboards interativos, a integração de relatórios automatizados e a implementação de filtros avançados por período ou por centro de custo. Mais que um software, o Finance Manager é um passo importante rumo a uma gestão financeira mais transparente, ágil e inteligente.
 
 
 
 ## <a name="c5"></a>5. Referências
 
-_Incluir as principais referências de seu projeto, para que seu parceiro possa consultar caso ele se interessar em aprofundar. Um exemplo de referência de livro e de site:_<br>
+## 5. Referências
+
+- [MDN Web Docs - Express.js - Node.js web application framework](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs)
+
+- [PostgreSQL Documentation - SQL Language Reference](https://www.postgresql.org/docs/current/sql.html)
+
+- [W3Schools - HTML, CSS, JavaScript and SQL Tutorials](https://www.w3schools.com/)
+
+- OpenAI ChatGPT - Apoio técnico e conceitual durante o desenvolvimento.
+
 
 ---
 ---
