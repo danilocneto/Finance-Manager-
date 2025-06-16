@@ -1,0 +1,240 @@
+body {
+  background: #FAFAF8;
+}
+
+.main-content {
+  max-width: 1100px;
+  margin: 48px auto 0 auto;
+  padding: 0 24px 60px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botoes.obras {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.botoes.obras .btn-acessar {
+  background: #4B6B3C;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 12px 36px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s;
+}
+.botoes.obras .btn-acessar:hover {
+  background: #35502a;
+}
+
+.main-content > h1,
+.summary-cards,
+.nova-despesa-form,
+.categories-section {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-content > h1,
+.centros-title {
+  text-align: left;
+  margin-left: 0;
+}
+
+.main-content > h1 {
+  font-size: 2.3em;
+  font-weight: 600;
+  margin-bottom: 36px;
+  color: #232133;
+}
+
+.summary-cards {
+  display: flex;
+  gap: 36px;
+  margin-bottom: 48px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border: 1.5px solid #d6d6d6;
+  border-radius: 16px;
+  padding: 32px 48px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none;
+}
+.card .label {
+  color: #6d6d6d;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.card .value {
+  color: #232133;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.nova-despesa-form {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 0 36px 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.nova-despesa-form h2 {
+  color: #232133;
+  font-size: 1.3em;
+  margin-bottom: 8px;
+  text-align: left;
+  font-weight: 500;
+}
+.nova-despesa-form-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  align-items: center;
+}
+.nova-despesa-form select,
+.nova-despesa-form input[type="number"],
+.nova-despesa-form input[type="text"] {
+  background: #e5e5e5;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 1.1em;
+  color: #232133;
+  font-weight: 500;
+  min-width: 120px;
+  flex: 1;
+  height: 48px;
+  box-sizing: border-box;
+}
+.nova-despesa-form button {
+  background: #4B6B3C;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 0 32px;
+  font-size: 1.1em;
+  font-weight: 600;
+  height: 48px;
+  box-shadow: none;
+  margin-left: 0;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.nova-despesa-form button:hover {
+  background: #35502a;
+}
+
+.categories-section {
+  width: 100%;
+  margin-top: 36px;
+}
+.centros-title {
+  font-size: 1.35em;
+  font-weight: 600;
+  color: #232133;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+.categories {
+  width: 100%;
+}
+.category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1.5px solid #d6d6d6;
+  border-radius: 16px;
+  padding: 18px 32px;
+  margin-bottom: 18px;
+  font-size: 1.2em;
+  box-shadow: none;
+}
+.category-name {
+  color: #6d6d6d;
+  font-weight: 600;
+}
+.category-value {
+  color: #232133;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.category-percent {
+  color: #6d6d6d;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+.category-row .btn-acessar {
+  background: #4B6B3C;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 28px;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: none;
+  margin-left: 12px;
+  transition: background 0.2s;
+}
+.category-row .btn-acessar:hover {
+  background: #35502a;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    padding: 0 8px 40px 8px;
+  }
+  .summary-cards,
+  .main-content > h1,
+  .nova-despesa-form,
+  .categories-section {
+    max-width: 100vw;
+  }
+  .summary-cards {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .card {
+    padding: 24px 12px;
+    min-width: unset;
+  }
+  .categories-section {
+    margin-top: 24px;
+  }
+  .nova-despesa-form-row {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .nova-despesa-form button {
+    width: 100%;
+    margin-left: 0;
+  }
+} 

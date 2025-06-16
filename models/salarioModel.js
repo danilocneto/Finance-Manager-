@@ -1,9 +1,14 @@
 const db = require('../config/db');
 
 module.exports = {
+    async findSalariosByObraId(obra_id) {
+        const query = 'SELECT * FROM salario WHERE id_obra = $1';
+        return db.query(query, [obra_id]);
+    },
+
     async createSalario(data){
-        const query = 'INSERT INTO salario (nome, descricao, valor, obra_id) VALUES ($1, $2, $3, $4)';
-        const values = [data.nome, data.descricao, data.valor, data.obra_id];
+        const query = 'INSERT INTO salario (descricao, valor, id_obra) VALUES ($1, $2, $3)';
+        const values = [data.descricao, data.valor, data.id_obra];
         return db.query(query, values);
     },
 

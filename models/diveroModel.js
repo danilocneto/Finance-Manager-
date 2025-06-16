@@ -1,6 +1,11 @@
 const db = require('../config/db');
 
 module.exports = {
+
+    async findDiversosByObraId(obra_id) {
+        const query = 'SELECT * FROM diverso WHERE id_obra = $1';
+        return db.query(query, [obra_id]);
+    },
     async createDiverso(data) {
         const query = 'INSERT INTO diverso (descricao, valor, id_obra) VALUES ($1, $2, $3) RETURNING *';
         const values = [data.descricao, data.valor, data.id_obra];

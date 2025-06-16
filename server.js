@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const routes = require('./routes');
-const notasRoutes = require('./routes/notasRoutes');
 
 // Configura o mecanismo de views para EJS
 app.set('view engine', 'ejs');

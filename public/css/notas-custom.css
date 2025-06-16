@@ -1,0 +1,145 @@
+body, .main-content { background: #f3f3f1; }
+
+.voltar-obra-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.btn-acessar {
+  background: #4B6B3C;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 28px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 8px;
+}
+.btn-acessar:hover {
+  background: #35502a;
+}
+
+h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #232133;
+}
+
+.notas-table-header {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 24px;
+  gap: 18px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 6px #d6e2d366;
+  border: 1.5px solid #D6E2D3;
+}
+
+.notas-table-header .notas-input,
+.notas-table-row .notas-input {
+  background: #e5e5e5;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 1.1em;
+  color: #232133;
+  font-weight: 500;
+  min-width: 120px;
+  text-align: center;
+}
+
+.notas-table-header .notas-obra,
+.notas-table-row .notas-obra {
+  min-width: 180px;
+}
+
+.btn-notas-adicionar {
+  background: #4B6B3C;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 28px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-notas-adicionar:hover {
+  background: #35502a;
+}
+
+.notas-table {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.notas-table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1.2fr 1.5fr 1fr 0.5fr;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px 18px;
+  gap: 12px;
+  box-shadow: 0 1px 6px #d6e2d366;
+  border: 1.5px solid #D6E2D3;
+}
+
+.notas-table-row-header {
+  background: #e5e5e5;
+  font-weight: 600;
+  color: #232133;
+  font-size: 1.1em;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 8px;
+  padding: 14px 18px;
+}
+
+.btn-notas-editar {
+  background: #4B6B3C;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 22px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-notas-editar:hover {
+  background: #35502a;
+}
+
+.btn-notas-delete {
+  color: #232133;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: color 0.2s;
+  text-align: center;
+}
+.btn-notas-delete:hover {
+  color: #c0392b;
+}
+
+@media (max-width: 900px) {
+  .notas-table-row, .notas-table-row-header {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    font-size: 0.98em;
+    padding: 8px 4px;
+  }
+  .notas-table-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+} 

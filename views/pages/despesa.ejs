@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title><%= titulo %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="main-content">
+    <div class="voltar-obra-top">
+      <a href="/obra/<%= obra_id %>" class="btn-acessar">Voltar para Obra</a>
+    </div>
+    <h1><%= titulo %></h1>
+    <p><%= descricao %></p>
+    <div class="despesas-lista">
+      <% if (despesas && despesas.length > 0) { %>
+        <% despesas.forEach(item => { %>
+          <div class="despesa-row">
+            <span class="despesa-nome"><%= item.descricao || item.nome %></span>
+            <span class="despesa-valor">R$ <%= item.valor.toFixed(2) %></span>
+            <% if (item.data) { %>
+              <span class="despesa-data"><%= item.data %></span>
+            <% } %>
+            <form action="/<%= tipo %>/<%= item.id %>" method="post" class="despesa-form-delete">
+              <button type="submit" class="btn-delete">Deletar</button>
+            </form>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>Nenhuma despesa encontrada.</p>
+      <% } %>
+    </div>
+  </div>
+  <%- include('../partials/footer') %>
+</body>
+</html>

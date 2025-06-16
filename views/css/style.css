@@ -39,10 +39,12 @@ header nav ul li a:hover {
 }
 
 /* ========== CONTEÚDO PRINCIPAL ========== */
-main.container {
-  padding: 20px;
-  max-width: 900px;
+.main-content {
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 32px 16px 80px 16px;
+  width: 100%;
+  background: none;
 }
 
 /* ========== RODAPÉ ========== */
@@ -209,3 +211,65 @@ form.nova-nota-form button:hover {
 .relatorio-tabela { ... }
 .dashboard-grafico { ... }
 */
+
+.despesas-lista {
+  margin: 32px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.despesa-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fcfcf8;
+  border: 2px solid #e3e8dd;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 24px 32px;
+  min-width: 600px;
+  max-width: 900px;
+  width: 100%;
+  font-size: 1.25em;
+  font-weight: 500;
+  gap: 24px;
+}
+
+.despesa-nome {
+  flex: 2;
+  font-weight: 600;
+  color: #22223b;
+}
+.despesa-valor {
+  flex: 1;
+  color: #22223b;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.15em;
+}
+.despesa-data {
+  flex: 1;
+  color: #888;
+  font-size: 1em;
+  text-align: center;
+}
+.despesa-form-delete {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.btn-delete {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-delete:hover {
+  background: #a93226;
+}

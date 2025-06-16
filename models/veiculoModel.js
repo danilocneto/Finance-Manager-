@@ -1,6 +1,11 @@
 const db = require('../config/db');
 
 module.exports = {
+    async findVeiculosByObraId(obra_id) {
+        const query = 'SELECT * FROM veiculos WHERE id_obra = $1';
+        return db.query(query, [obra_id]);
+    },
+
     async createVeiculo(data) {
         const query = 'INSERT INTO veiculos (descricao, valor, id_obra) VALUES ($1, $2, $3) RETURNING *';
         const values = [data.descricao, data.valor, data.id_obra];

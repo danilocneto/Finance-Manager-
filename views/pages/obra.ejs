@@ -4,9 +4,17 @@
   <meta charset="UTF-8">
   <title>Controle Financeiro – <%= obra.nome %></title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/obra-custom.css">
 </head>
 <body>
-  <%- include('../partials/sidebar') %>
+  <div class="botoes obras">
+    <div class="voltar-obra-top">
+      <a href="/" class="btn-acessar">Voltar para Home</a>
+    </div>
+    <div class="voltar-obra-top">
+      <a href="/nota/<%= obra.id %>" class="btn-acessar">Notas fiscais</a>
+    </div>
+  </div>
   <div class="main-content">
     <h1><%= obra.nome %></h1>
     <div class="summary-cards">
@@ -24,29 +32,43 @@
       </div>
     </div>
     <form action="/obra/<%= obra.id %>/despesa/add" method="POST" class="nova-despesa-form">
-      <h2>Adicionar Despesa</h2>
-      <label for="tipo">Tipo de Despesa:</label>
-      <select name="tipo" id="tipo" required>
-        <option value="salario">Salário</option>
-        <option value="despesa_equipe">Despesa Equipe</option>
-        <option value="maquinario">Maquinário</option>
-        <option value="veiculos">Veículos</option>
-        <option value="diversos">Diversos</option>
-      </select>
-      <input name="valor" type="number" step="0.01" placeholder="Valor da despesa" required>
-      <input name="descricao" type="text" placeholder="Descrição" required>
-      <input name="data" type="date" placeholder="Data" required>
-      <input name="id_obra" type="hidden" value="<%= obra.id %>">
-      <button type="submit">Adicionar Despesa</button>
+      <h2>Adicionar despesa</h2>
+      <div class="nova-despesa-form-row">
+        <select name="tipo" id="tipo" required>
+          <option value="salario">Salário</option>
+          <option value="despesa_equipe">Despesa Equipe</option>
+          <option value="maquinario">Maquinário</option>
+          <option value="veiculos">Veículos</option>
+          <option value="diversos">Diversos</option>
+        </select>
+        <input name="valor" type="number" step="0.01" placeholder="Valor" required>
+        <input name="descricao" type="text" placeholder="Descrição" required>
+        <input name="id_obra" type="hidden" value="<%= obra.id %>">
+        <button type="submit">Adicionar</button>
+      </div>
     </form>
-    <div class="categories">
-      <% categorias.forEach(categoria => { %>
-        <div class="category-row">
-          <span class="category-name"><%= categoria.nome %></span>
-          <span class="category-value">R$ <%= categoria.valor.toFixed(2) %></span>
-          <span class="category-percent"><%= categoria.percentual %>%</span>
-        </div>
-      <% }) %>
+    <div class="categories-section">
+      <h2 class="centros-title">Centros de custo</h2>
+      <div class="categories">
+        <% categorias.forEach(categoria => { %>
+          <div class="category-row">
+            <span class="category-name"><%= categoria.nome %></span>
+            <span class="category-value">R$ <%= categoria.valor.toFixed(2) %></span>
+            <span class="category-percent"><%= categoria.percentual %>%</span>
+            <% if (categoria.nome === 'Salários') { %>
+              <a href="/salarios/<%= obra.id %>" class="btn-acessar">Ver todos</a>
+            <% } else if (categoria.nome === 'Despesa Equipe') { %>
+              <a href="/despesa_equipe/<%= obra.id %>" class="btn-acessar">Ver todos</a>
+            <% } else if (categoria.nome === 'Maquinários') { %>
+              <a href="/maquinarios/<%= obra.id %>" class="btn-acessar">Ver todos</a>
+            <% } else if (categoria.nome === 'Veículos') { %>
+              <a href="/veiculos/<%= obra.id %>" class="btn-acessar">Ver todos</a>
+            <% } else if (categoria.nome === 'Diversos') { %>
+              <a href="/diversos/<%= obra.id %>" class="btn-acessar">Ver todos</a>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
     </div>
   </div>
   <%- include('../partials/footer') %>

@@ -71,10 +71,10 @@ const obraController = {
   },
 
   async addDespesa(req, res) {
-    const { tipo, valor, descricao, data, id_obra } = req.body;
+    const { tipo, valor, descricao, id_obra } = req.body;
     try {
       if (tipo === 'salario') {
-        await Salario.createSalario({ nome: descricao, descricao, valor, obra_id: id_obra });
+        await Salario.createSalario({descricao, valor, id_obra: id_obra });
       } else if (tipo === 'despesa_equipe') {
         await DespesaEquipe.createDespesa_equipe({ descricao, valor, id_obra });
       } else if (tipo === 'maquinario') {

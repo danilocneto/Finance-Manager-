@@ -2,17 +2,17 @@
 -- Dados de Obras
 -- ======================================
 INSERT INTO obra (nome, url_foto) VALUES
-('Obra Sul de Minas', 'https://exemplo.com/sul-minas.jpg'),
-('Obra Norte de Minas', 'https://exemplo.com/norte-minas.jpg'),
-('Obra Triângulo Mineiro', 'https://exemplo.com/triangulo.jpg'),
-('Obra Região Metropolitana', 'https://exemplo.com/metropolitana.jpg'),
-('Obra Leste de Minas', 'https://exemplo.com/leste.jpg'),
-('Obra Oeste de Minas', 'https://exemplo.com/oeste.jpg'),
-('Obra Alto Paranaíba', 'https://exemplo.com/alto-paranaiba.jpg'),
-('Obra Zona da Mata', 'https://exemplo.com/zona-mata.jpg'),
-('Obra Sul Fluminense', 'https://exemplo.com/sul-fluminense.jpg'),
-('Obra Vale do Aço', 'https://exemplo.com/vale-aco.jpg'),
-('Obra Vale do Jequitinhonha', 'https://exemplo.com/jequitinhonha.jpg');
+('Obra Sul de Minas', '/fotos/sulMinas.jpeg'),
+('Obra Norte de Minas', '/fotos/norteMinas.jpeg'),
+('Obra Triângulo Mineiro', '/fotos/triangulo.jpeg'),
+('Obra Região Metropolitana', '/fotos/metropolitana.jpeg'),
+('Obra Leste de Minas', '/fotos/LesteMinas.jpeg'),
+('Obra Oeste de Minas', '/fotos/oesteMinas.jpeg'),
+('Obra Alto Paranaíba', '/fotos/lesteMinas.png'),
+('Obra Zona da Mata', '/fotos/zonaMata.jpeg'),
+('Obra Sul Fluminense', '/fotos/sulFluminense.jpeg'),
+('Obra Vale do Aço', '/fotos/valeDoAco.jpeg'),
+('Obra Vale do Jequitinhonha', '/fotos/jequitinhonha.jpeg');
 
 -- ======================================
 -- Dados de Salários (2 por obra)

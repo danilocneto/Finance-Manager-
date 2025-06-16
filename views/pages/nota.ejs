@@ -2,45 +2,53 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title><%= titulo %></title>
+  <title>Notas Fiscais da Obra</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/notas-custom.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <%- include('../partials/sidebar') %>
   <div class="main-content">
-    <h1><%= titulo %></h1>
-    <p><%= descricao %></p>
-    <form id="form-add-nf" action="/nota/add" method="POST" class="nova-nota-form horizontal-form">
-      <input name="numero" type="text" placeholder="Número da nota" required>
-      <input name="valor" type="number" step="0.01" placeholder="Valor bruto" required>
-      <input name="data_emissao" type="date" placeholder="Data de emissão" required>
-      <select name="id_obra" required>
-        <option value="">Selecione a obra</option>
-        <% obras.forEach(obra => { %>
-          <option value="<%= obra.id %>"><%= obra.nome %></option>
-        <% }) %>
-      </select>
-      <button type="submit">Adicionar</button>
+    <div class="voltar-obra-top">
+      <a href="/obra/<%= id_obra %>" class="btn-acessar">Voltar para obra</a>
+    </div>
+    <h1>Notas fiscais</h1>
+    <form action="/nota/add" method="post" class="notas-table-header">
+      <input type="hidden" name="id_obra" value="<%= id_obra %>">
+      <input name="numero" type="text" placeholder="Número" required class="notas-input">
+      <input name="valor" type="number" step="0.01" placeholder="Valor" required class="notas-input">
+      <input name="data_emissao" type="date" placeholder="Data" required class="notas-input">
+      <input value="<%= nome_obra || '' %>" disabled class="notas-input notas-obra">
+      <button type="submit" class="btn-notas-adicionar">Adicionar</button>
     </form>
-    <ul class="notas-lista" id="notas-lista">
-      <% notas.forEach(NF => { %>
-        <li data-id="<%= NF.id %>">
-          <span class="nf-info">
-            <%= NF.numero %> - R$ <%= NF.valor %> - <%= NF.data_emissao %>
-          </span>
-          <form class="form-edit-nf" data-id="<%= NF.id %>" action="/nota/edit/<%= NF.id %>" method="POST">
-            <input name="numero" placeholder="Novo número" required>
-            <input name="valor" type="number" step="0.01" placeholder="Novo valor" required>
-            <input name="data_emissao" type="date" placeholder="Nova data" required>
-            <button type="submit">Editar</button>
+    <div class="notas-table">
+      <div class="notas-table-row notas-table-row-header">
+        <span>Número</span>
+        <span>Valor</span>
+        <span>Data</span>
+        <span>Obra</span>
+        <span></span>
+        <span></span>
+      </div>
+      <% if (notas && notas.length > 0) { %>
+        <% notas.forEach(nota => { %>
+          <form action="/nota/edit/<%= nota.id %>" method="post" class="notas-table-row">
+            <input type="hidden" name="id_obra" value="<%= id_obra %>">
+            <input name="numero" value="<%= nota.numero %>" class="notas-input" required>
+            <input name="valor" type="number" step="0.01" value="<%= nota.valor %>" class="notas-input" required>
+            <input name="data_emissao" type="date" value="<%= nota.data_emissao ? nota.data_emissao.toISOString ? nota.data_emissao.toISOString().split('T')[0] : nota.data_emissao.split('T')[0] : '' %>" class="notas-input" required>
+            <input value="<%= nome_obra || '' %>" disabled class="notas-input notas-obra">
+            <button type="submit" class="btn-notas-editar">Editar</button>
+            <a href="#" onclick="event.preventDefault(); this.closest('form').nextElementSibling.submit();" class="btn-notas-delete"><i class="fa-solid fa-trash"></i></a>
           </form>
-          <form class="form-delete-nf" data-id="<%= NF.id %>" action="/nota/delete/<%= NF.id %>" method="POST">
-            <button type="submit">Apagar</button>
+          <form action="/nota/delete/<%= nota.id %>" method="post" style="display:none;">
+            <input type="hidden" name="id_obra" value="<%= id_obra %>">
           </form>
-        </li>
-      <% }) %>
-    </ul>
-    <script src="/js/notas.js"></script>
+        <% }) %>
+      <% } else { %>
+        <div class="notas-table-row"><span style="grid-column: 1 / -1; text-align:center;">Nenhuma nota fiscal encontrada.</span></div>
+      <% } %>
+    </div>
   </div>
   <%- include('../partials/footer') %>
 </body>

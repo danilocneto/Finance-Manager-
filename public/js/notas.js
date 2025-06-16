@@ -7,15 +7,29 @@ document.addEventListener('DOMContentLoaded', function() {
     formAdd.addEventListener('submit', async function(e) {
       e.preventDefault();
       const formData = new FormData(formAdd);
-      const data = Object.fromEntries(formData.entries());
-      const res = await fetch('/nota/add', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      });
-      if (res.ok) {
-        location.reload(); // Simples: recarrega para ver a nova nota
-      } else {
+      
+      // Verifica se uma obra foi selecionada
+      const idObra = formData.get('id_obra');
+      if (!idObra) {
+        alert('Por favor, selecione uma obra');
+        return;
+      }
+
+      try {
+        const res = await fetch('/nota/add', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        
+        if (res.ok) {
+          location.reload(); // Simples: recarrega para ver a nova nota
+        } else {
+          const error = await res.json();
+          alert(error.error || 'Erro ao adicionar nota');
+        }
+      } catch (error) {
+        console.error('Erro:', error);
         alert('Erro ao adicionar nota');
       }
     });

@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <%- include('../partials/sidebar') %>
   <div class="main-content">
     <h1><%= titulo %></h1>
     <p><%= mensagem %></p>
@@ -15,7 +14,7 @@
         <% obras.forEach(obra => { %>
           <div class="card-obra">
             <h2><%= obra.nome %></h2>
-            <img src="https://source.unsplash.com/200x112/?landscape,nature" alt="Foto aleatória da obra" class="card-img">
+            <img src="<%= obra.url_foto %>" alt="Foto da obra" class="card-img">
             <a href="/obra/<%= obra.id %>">
               <button class="btn-acessar">Acessar Obra</button>
             </a>

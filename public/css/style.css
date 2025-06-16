@@ -107,8 +107,15 @@ header nav ul li a:hover {
 
 /* ========== MAIN CONTENT (DASHBOARD) ========== */
 .main-content {
-  margin-left: 230px;
-  padding: 40px 60px;
+  margin-left: 0 !important;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
 }
 
 /* ========== HOME / OBRA CONTAINER ========== */
@@ -201,69 +208,6 @@ h1.home-title {
 .card-obra .btn-acessar:hover {
   background: #35502a;
   color: #fff;
-}
-
-/* ========== SUMMARY CARDS (DASHBOARD) ========== */
-.summary-cards {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 40px;
-  justify-content: center;
-}
-
-.card {
-  background: #fff;
-  border: 1.5px solid #D6E2D3;
-  border-radius: 18px;
-  padding: 24px 36px;
-  min-width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.card .label {
-  color: #8B8B8B;
-  font-size: 1em;
-  margin-bottom: 8px;
-}
-
-.card .value {
-  color: #232133;
-  font-size: 1.7em;
-  font-weight: 700;
-}
-
-/* ========== CATEGORIES (DASHBOARD) ========== */
-.categories {
-  margin-top: 30px;
-}
-
-.category-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  border: 1.5px solid #D6E2D3;
-  border-radius: 16px;
-  padding: 18px 32px;
-  margin-bottom: 18px;
-  font-size: 1.2em;
-}
-
-.category-name {
-  color: #8B8B8B;
-  font-weight: 600;
-}
-
-.category-value {
-  color: #232133;
-  font-weight: 700;
-}
-
-.category-percent {
-  color: #8B8B8B;
-  font-weight: 600;
 }
 
 /* ========== NOTAS FISCAIS (OBRA EJS) ========== */
@@ -458,8 +402,110 @@ footer {
   .main-content {
     padding: 24px 8px;
   }
-  .summary-cards {
-    flex-direction: column;
-    align-items: center;
+  .categories {
+    margin-top: 24px;
   }
+}
+
+.despesas-lista {
+  margin: 32px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.despesa-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fcfcf8;
+  border: 2px solid #e3e8dd;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 24px 32px;
+  min-width: 600px;
+  max-width: 900px;
+  width: 100%;
+  font-size: 1.25em;
+  font-weight: 500;
+  gap: 24px;
+}
+
+.despesa-nome {
+  flex: 2;
+  font-weight: 600;
+  color: #22223b;
+}
+.despesa-valor {
+  flex: 1;
+  color: #22223b;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.15em;
+}
+.despesa-data {
+  flex: 1;
+  color: #888;
+  font-size: 1em;
+  text-align: center;
+}
+.despesa-form-delete {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.btn-delete {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-delete:hover {
+  background: #a93226;
+}
+
+.voltar-obra-top {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.botoes.obras {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.botoes.obras .btn-acessar {
+  background: #5c6f57;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 12px 36px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s;
+}
+.botoes.obras .btn-acessar:hover {
+  background: #3d4d39;
+}
+
+.main-content > h1 {
+  font-size: 2.3em;
+  font-weight: 600;
+  margin-bottom: 36px;
+  color: #232133;
+  text-align: left;
+  width: 100%;
 }
